@@ -1,0 +1,41 @@
+.input:focus {
+}
+
+.input {
+}
+
+.inputWrapper {
+}
+
+.superInput {
+	min-width: 370px;
+	height: 35px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	color: #000000;
+	line-height: 19px;
+	border-color: rgba(0,0,0,0.5);
+}
+
+.errorInput {
+	min-width: 370px;
+	height: 35px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	color: #000000;
+	line-height: 19px;
+	border-color: red;
+}
+
+.errorInput:focus {
+}
+
+.error {
+	margin-top: 10px;
+	color: red;
+	font-family: Montserrat, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}
