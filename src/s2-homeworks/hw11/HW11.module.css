@@ -2,7 +2,15 @@
 }
 
 .wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
 }
 
 .number {
+	margin: 10px 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
