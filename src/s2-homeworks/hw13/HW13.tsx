@@ -39,20 +39,20 @@ const HW13 = () => {
             .catch((e) => {
                 // дописать
                 if (e.response.status === 400) {
-                    setCode('Код 400')
+                    setCode('Ошибка 400!')
                     setImage(error400)
-                    setText('Ты не отправил success в body вообще!')
-                    setInfo('')
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 } else if (e.response.status === 500) {
-                    setCode('Код 500')
+                    setCode('Ошибка 500!')
                     setImage(error500)
-                    setText('эмитация ошибки на сервере')
-                    setInfo('')
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 } else {
-                    setCode('Unknown error')
+                    setCode('Error!')
                     setImage(errorUnknown)
-                    setText('Error')
-                    setInfo('')
+                    setText(e.message)
+                    setInfo(e.name)
                 }
 
             })
