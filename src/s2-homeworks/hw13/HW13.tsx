@@ -29,11 +29,12 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
+                debugger
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
-                setText('...всё ок)')
-                setInfo('')
+                setText(res.data.errorText)
+                setInfo(res.data.info)
 
             })
             .catch((e) => {
