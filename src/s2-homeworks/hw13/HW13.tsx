@@ -8,11 +8,6 @@ import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
 
-/*
-* 1 - дописать функцию send
-* 2 - дизэйблить кнопки пока идёт запрос
-* 3 - сделать стили в соответствии с дизайном
-* */
 
 const HW13 = () => {
     const [code, setCode] = useState('')
@@ -37,10 +32,24 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
+                setInfo('')
 
             })
             .catch((e) => {
                 // дописать
+                if (e.response.status === 400) {
+                    setCode('Код 400')
+                    setImage(error400)
+                    setInfo('')
+                } else if (e.response.status === 500) {
+                    setCode('Код 500')
+                    setImage(error500)
+                    setInfo('')
+                } else {
+                    setCode('Unknown error')
+                    setImage(errorUnknown)
+                    setInfo('')
+                }
 
             })
     }
@@ -56,7 +65,7 @@ const HW13 = () => {
                         onClick={send(true)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled={info === '...loading'}
                     >
                         Send true
                     </SuperButton>
@@ -65,7 +74,7 @@ const HW13 = () => {
                         onClick={send(false)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled={info === '...loading'}
                     >
                         Send false
                     </SuperButton>
@@ -74,7 +83,7 @@ const HW13 = () => {
                         onClick={send(undefined)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled={info === '...loading'}
                     >
                         Send undefined
                     </SuperButton>
@@ -83,7 +92,7 @@ const HW13 = () => {
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
                         // дописать
-
+                        disabled={info === '...loading'}
                     >
                         Send null
                     </SuperButton>
