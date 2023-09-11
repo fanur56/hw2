@@ -51,11 +51,18 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                debugger
                 // делает студент
 
                 // сохранить пришедшие данные
+                if (res){
+                    setTechs(res.data.techs)
+                }
 
                 //
+            })
+            .finally(()=>{
+                setLoading(false)
             })
     }
 
