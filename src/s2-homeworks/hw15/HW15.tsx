@@ -56,6 +56,7 @@ const HW15 = () => {
                 if (res) {
                     setTotalCount(res.data.totalCount)
                     setTechs(res.data.techs)
+
                 }
             })
             .finally(() => {
@@ -65,33 +66,24 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
-        // setPage(
         setPage(newPage)
-        // setCount(
         setCount(newCount)
-        // sendQuery(
         sendQuery({page: newPage, count: newCount})
-        // setSearchParams(
         setSearchParams({page: newPage.toString(), count: newCount.toString(), sort})
-        //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
         setSort(newSort)
         setPage(1)
-
-        sendQuery({page, count})
+        sendQuery({page, count, sort: newSort})
         setSearchParams({page: page.toString(), count: count.toString(), sort: newSort})
-
-        //
     }
+
+
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        console.log(params)
         sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
